@@ -31,7 +31,7 @@ struct TabMenuView: View {
                 .tabItem {
                     TabItem(icon: "heart", title: "Избранное")
                 }
-                .badge(String(viewModel.dataBaseVacancies.filter { $0.isFavorite }.count))
+                .badge(viewModel.dataBaseVacancies.filter { $0.isFavorite }.count)
                 .onAppear {
                     coordinator.selectedTab = 1
                 }
