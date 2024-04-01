@@ -79,7 +79,7 @@ struct FavoritesContent: View {
                             .cornerRadius(8)
                             .onTapGesture {
                                 viewModel.currentVacancy = vacancy
-                                coordinator.favoritesNavigate(route: .vacancy)
+                                coordinator.navigate(route: FavoritesRoute.vacancy)
                             }
                         }
                     }

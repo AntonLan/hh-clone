@@ -27,7 +27,7 @@ struct MainView: View {
                             CardVacancy(vacancy: $viewModel.dataBaseVacancies[index])
                                 .onTapGesture {
                                     viewModel.currentVacancy = viewModel.dataBaseVacancies[index]
-                                    coordinator.mainNavigate(route: .vacancy)
+                                    coordinator.navigate(route: MainRoute.vacancy)
                                 }
                         }
                         

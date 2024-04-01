@@ -23,7 +23,7 @@ struct StartView: View {
                     Button() {
                         viewModel.checkValidEmail()
                         if viewModel.isValidEmail {
-                            coordinator.favoritesNavigate(route: .authWithEmail)
+                            coordinator.navigate(route: FavoritesRoute.authWithEmail)
                         }
                     } label: {
                         Text("Продолжить")

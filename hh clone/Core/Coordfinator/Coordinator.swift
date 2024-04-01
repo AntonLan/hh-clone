@@ -9,14 +9,15 @@ import Foundation
 import SwiftUI
 import Observation
 
+protocol Route: Hashable {}
 
-enum FavoritesRoute: Hashable {
+enum FavoritesRoute: Route {
     case authWithEmail
     case authWithPassword
     case vacancy
 }
 
-enum MainRoute: Hashable {
+enum MainRoute: Route {
     case vacancy
 }
 
@@ -25,6 +26,9 @@ final public class Coordinator {
     var path: NavigationPath = NavigationPath()
     var selectedTab = 1
 
+    func navigate(route: some Route) {
+        path.append(route)
+    }
     
     func favoritesNavigate(route: FavoritesRoute) {
         path.append(route)
