@@ -22,7 +22,7 @@ struct MainView: View {
                         .font(.title2)
                         .fontWeight(.semibold)
                     
-                    LazyVStack {
+                    VStack {
                         ForEach(0..<3) { index in
                             CardVacancy(vacancy: $viewModel.dataBaseVacancies[index])
                                 .onTapGesture {
