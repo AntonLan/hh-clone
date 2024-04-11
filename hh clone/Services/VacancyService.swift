@@ -13,8 +13,6 @@ enum JsonError: Error {
 
 final class VacancyService {
     
-    static let shared = VacancyService()
-    
     func fetchData() throws -> Response {
         guard let url = Bundle.main.url(forResource: "offers", withExtension: "json") else {
             print("Json file not found")

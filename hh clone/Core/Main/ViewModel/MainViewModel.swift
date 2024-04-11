@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import Factory
 
 final class MainViewModel: ObservableObject {
     @Published var offers = [Offer]()
@@ -14,6 +15,8 @@ final class MainViewModel: ObservableObject {
     @Published var currentVacancy: FavoritesVacancy?
     @Published var dataBaseVacancies: [FavoritesVacancy] = []
     private let dataSource: ItemDataSource
+    
+    @Injected(\.vacancyService) private var vacancyService
 
     
     init(dataSource: ItemDataSource = ItemDataSource.shared) {
@@ -46,7 +49,7 @@ final class MainViewModel: ObservableObject {
 
     
     func loadData() {
-        if let res = try? VacancyService.shared.fetchData() {
+        if let res = try? vacancyService.fetchData() {
             self.offers = res.offers
             self.vacancies = res.vacancies
         }
